@@ -1,9 +1,7 @@
 # Tailwind Size Migrator 🎨
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg?logo=python)](https://python.org)
 [![Works on My Machine](https://img.shields.io/badge/Works-On%20My%20Machine-success.svg)](https://blog.codinghorror.com/the-works-on-my-machine-certification-program/)
-[![Tailwind](https://img.shields.io/badge/Tailwind-Because%20Bootstrap%20is%20Too%20Easy-06B6D4.svg?logo=tailwindcss)](https://tailwindcss.com)
 [![Over Engineered](https://img.shields.io/badge/Over%20Engineered-Definitely-red.svg)](https://github.com/helgesverre)
 [![Time Saved](https://img.shields.io/badge/Time%20Saved-Probably%20Negative-orange.svg)](https://xkcd.com/1205/)
 
