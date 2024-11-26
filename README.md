@@ -109,4 +109,4 @@ pipx run black main.py
 
 ## Requirements
 
-- Python 3.6 or higher (I actually have no clue, figure it out yourself, python is weird)
+- Python 3.6 or higher (I actually have no clue, figure it out yourself, nobody understands python anyways)
