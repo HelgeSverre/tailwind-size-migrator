@@ -2,12 +2,15 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+<img src="/art/header.png">
+
 A command-line tool that automatically migrates legacy Tailwind CSS height/width utility combinations to the new
 `size-{n}` utility class where applicable.
 
 ## What it does
 
-This tool scans your project for HTML and Blade files, finding instances where you've used `h-{n}` and `w-{n}` together
+This tool scans your project files, finding instances where you've used `h-{n}` and `w-{n}` together
 with the same value (where n is 1-12) and replaces them with the equivalent `size-{n}` utility class.
 
 For example:
@@ -22,12 +25,13 @@ For example:
 
 ## Features
 
-- 🔍 Recursively scans directories for `.html` and `.blade.php` (or whatever) files
-- 🚫 Automatically skips `node_modules` and `vendor` directories
+- 🔍 Recursively scans directories for specified file extensions
+- 🚫 Configurable directory exclusion
 - ✨ Only updates files that need changes
 - 📝 Provides detailed console output of processed files
 - 🔒 Safe processing with error handling
 - 💡 Maintains all other classes and file formatting
+- 🔄 Dry run mode to preview changes
 
 ## Installation
 
@@ -38,25 +42,49 @@ cd tailwind-size-migrator
 
 ## Usage
 
-1. Navigate to your project directory where your HTML/Blade files are located
-2. Run the script:
+1. Navigate to your project directory
+2. Run the script with your desired options:
 
 ```bash
-python tailwind_size_migrator.py
+# Use defaults (current directory, .html and .blade.php files)
+python main.py
+
+# Specify a different directory
+python main.py -p ./src
+
+# Specify custom extensions
+python main.py -e .jsx .tsx .html
+
+# Exclude specific directories (in addition to defaults)
+python main.py -x build dist cache
+
+# Specify path, extensions and exclusions
+python main.py -p ./src -e .jsx .tsx -x build dist
+
+# Do a dry run to see what would be changed without making changes
+python main.py --dry-run
+
+# Get help
+python main.py --help
 ```
 
-The script will:
+### Command Line Options
 
-1. Search for all `.html` and `.blade.php` files
-2. Process each file and replace applicable class combinations
-3. Show progress and results in the console
-4. Provide a summary of processed and updated files
+| Option                 | Description                                               |
+|------------------------|-----------------------------------------------------------|
+| `-p`, `--path`         | Directory path to search in (default: current directory)  |
+| `-e`, `--ext`          | File extensions to process (default: .html .blade.php)    |
+| `-x`, `--exclude-dirs` | Directories to exclude (default: vendor node_modules)     |
+| `--dry-run`            | Show which files would be modified without making changes |
 
 ## Example Output
 
 ```
 Starting Tailwind class replacement...
-Searching for .html and .blade.php files...
+Search path: /path/to/your/project
+File extensions: .html, .blade.php
+Excluded directories: vendor, node_modules
+Searching for files...
 
 ✓ Updated: ./resources/views/components/icon.blade.php
 - Skipped: ./resources/views/layouts/app.blade.php (no changes needed)
@@ -75,12 +103,4 @@ pipx run black main.py
 
 ## Requirements
 
-- Python 3.6 or higher
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Python 3.6 or higher (I actually have no clue, figure it out yourself, python is weird)
