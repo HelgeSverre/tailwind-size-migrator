@@ -1,9 +1,15 @@
 # Tailwind Size Migrator 🎨
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg?logo=python)](https://python.org)
+[![Works on My Machine](https://img.shields.io/badge/Works-On%20My%20Machine-success.svg)](https://blog.codinghorror.com/the-works-on-my-machine-certification-program/)
+[![Tailwind](https://img.shields.io/badge/Tailwind-Because%20Bootstrap%20is%20Too%20Easy-06B6D4.svg?logo=tailwindcss)](https://tailwindcss.com)
+[![Over Engineered](https://img.shields.io/badge/Over%20Engineered-Definitely-red.svg)](https://github.com/helgesverre)
+[![Time Saved](https://img.shields.io/badge/Time%20Saved-Probably%20Negative-orange.svg)](https://xkcd.com/1205/)
 
-
+<center>
 <img src="/art/header.png">
+</center>
 
 A command-line tool that automatically migrates legacy Tailwind CSS height/width utility combinations to the new
 `size-{n}` utility class where applicable.
@@ -11,7 +17,8 @@ A command-line tool that automatically migrates legacy Tailwind CSS height/width
 ## What it does
 
 This tool scans your project files, finding instances where you've used `h-{n}` and `w-{n}` together
-with the same value (where n is 1-12) and replaces them with the equivalent `size-{n}` utility class.
+with the same value (where n is 1-12) and replaces them with the equivalent `size-{n}` utility class. Yes, this is
+literally all it does.
 
 For example:
 
@@ -25,13 +32,13 @@ For example:
 
 ## Features
 
-- 🔍 Recursively scans directories for specified file extensions
-- 🚫 Configurable directory exclusion
-- ✨ Only updates files that need changes
-- 📝 Provides detailed console output of processed files
-- 🔒 Safe processing with error handling
-- 💡 Maintains all other classes and file formatting
-- 🔄 Dry run mode to preview changes
+- 🔍 Recursively scans directories for specified file extensions (like find+replace but more complicated)
+- 🚫 Configurable directory exclusion (because we learned from that one time we borked node_modules)
+- ✨ Only updates files that need changes (revolutionary, I know)
+- 📝 Provides detailed console output of processed files (for when you need to know what you broke)
+- 🔒 Safe processing with error handling (as safe as modifying files can be)
+- 💡 Maintains all other classes and file formatting (we're not monsters)
+- 🔄 Dry run mode to preview changes (for the paranoid among us)
 
 ## Installation
 
@@ -43,7 +50,8 @@ cd tailwind-size-migrator
 ## Usage
 
 1. Navigate to your project directory
-2. Run the script with your desired options:
+2. Back up your files (you're going to ignore this anyway)
+3. Run the script with your desired options:
 
 ```bash
 # Use defaults (current directory, .html and .blade.php files)
@@ -58,7 +66,7 @@ python main.py -e .jsx .tsx .html
 # Exclude specific directories (in addition to defaults)
 python main.py -x build dist cache
 
-# Specify path, extensions and exclusions
+# Specify path, extensions and exclusions (for the control freaks)
 python main.py -p ./src -e .jsx .tsx -x build dist
 
 # Do a dry run to see what would be changed without making changes
