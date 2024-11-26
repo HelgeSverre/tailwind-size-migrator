@@ -52,16 +52,16 @@ cd tailwind-size-migrator
 3. Run the script with your desired options:
 
 ```bash
-# Use defaults (current directory, .html and .blade.php files)
+# Use defaults (current directory, .html and .blade.php files, vendor and node_modules folders are excluded)
 python main.py
 
-# Specify a different directory
+# Specify a different directory (default is current directory, which makes sense if you copy the script to your project)
 python main.py -p ./src
 
-# Specify custom extensions
+# Specify custom extensions (for you non-Laravel folks, you know who you are)
 python main.py -e .jsx .tsx .html
 
-# Exclude specific directories (in addition to defaults)
+# Exclude specific directories (instead of the defaults vendor and node_modules)
 python main.py -x build dist cache
 
 # Specify path, extensions and exclusions (for the control freaks)
